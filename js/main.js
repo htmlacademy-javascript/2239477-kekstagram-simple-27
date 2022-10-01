@@ -4,6 +4,9 @@ function getRandomInt(min, max) {
 getRandomInt();
 
 function checkMaxLengthStr (comment, maxLength){
-    return comment.value.length <= maxLength ? true : false;
+  if(comment.value.length <= maxLength){
+    return true;
+  }
+  return false;
 }
 checkMaxLengthStr();
