@@ -4,8 +4,7 @@ function getRandomInt(min, max) {
 
   if (min < 0 || typeof min !== 'number' || typeof max !== 'number') {
     return NaN;
-  }
-  if (min > max) {
+  } else if (min > max) {
     min = max;
   }
 
