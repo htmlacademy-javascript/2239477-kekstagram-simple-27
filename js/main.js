@@ -1,8 +1,9 @@
+/* eslint-disable no-unused-vars */
 function getRandomInt(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
 
-  if (min < 0 || typeof min !== 'number' || typeof max !== 'number') {
+  if (min < 0 || max < 0 || typeof min !== 'number' || typeof max !== 'number') {
     return NaN;
   } else if (min > max) {
     const newMax = min;
@@ -17,23 +18,29 @@ const checkLengthStr = (str, lengthStr) => str.length <= lengthStr;
 
 checkLengthStr();
 
-const createsObject = (num) => {
+const getRandomString = (str) => str.substr(0, getRandomInt(1, 10));
+
+const getObjectDescription = (num) => {
+  const string = 'Lorem ipsum dolor sit amet consectetur adipisicing elit.';
+
   const attributesImg = {
     'id': num,
     'url': `photos/${num}.jpg`,
-    'description': `Фото - ${num}`,
+    'description': getRandomString(string),
     'likes': getRandomInt(15, 200),
     'comments': getRandomInt(0, 200)
   };
   return attributesImg;
 };
 
-const images = [];
+function getArr(arrLenght, arrValue) {
+  const images = [];
 
-function arrPush(numMin, numMax, arr, arrValue) {
-  for (let i = numMin; i <= numMax; i++) {
-    arr.push(arrValue(i));
+  for (let i = 1; i <= arrLenght; i++) {
+    images.push(arrValue(i));
   }
+
+  return images;
 }
 
-arrPush(1, 25, images, createsObject);
+const objects = getArr(25, getObjectDescription);
