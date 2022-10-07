@@ -14,9 +14,9 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-const checkLengthStr = (str, lengthStr) => str.length <= lengthStr;
+const getCheckLengthStr = (str, lengthStr) => str.length <= lengthStr;
 
-checkLengthStr();
+getCheckLengthStr();
 
 const getRandomString = (str) => str.substr(0, getRandomInt(1, 10));
 
