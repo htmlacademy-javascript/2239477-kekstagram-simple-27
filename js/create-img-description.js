@@ -1,4 +1,4 @@
-import {getRandomInt} from './util.js';
+import {getRandomInt} from './get-random-int.js';
 import {getRandomString} from './get-random-string.js';
 
 const getObjectDescription = (num) => {
