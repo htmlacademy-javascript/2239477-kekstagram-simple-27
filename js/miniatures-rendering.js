@@ -10,7 +10,7 @@ function getListContent(obj) {
   obj.forEach((_value, index) => {
     const clonedMinPictureTemplate = minPictureTemplate.cloneNode(true);
 
-    clonedMinPictureTemplate.firstElementChild.src = obj[index].url;
+    clonedMinPictureTemplate.querySelector('.picture__img').src = obj[index].url;
     clonedMinPictureTemplate.querySelector('.picture__likes').textContent = obj[index].likes;
     clonedMinPictureTemplate.querySelector('.picture__comments').textContent = obj[index].comments;
 
