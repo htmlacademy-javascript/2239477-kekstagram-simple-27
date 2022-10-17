@@ -1,5 +1,5 @@
 import { isEscapeKey } from './util.js';
-import { scaleValue, imgPreview, scaleValueTetx } from './elements.js';
+import { scaleValue, imgPreview, scaleValueTetx, previewEffectsInput } from './elements.js';
 import { getCheckLengthStr } from './get-check-length-str.js';
 
 const fileInput = document.querySelector('.img-upload__input');
@@ -34,6 +34,9 @@ const closePopup = () => {
   fileInput.value = '';
   scaleValue.value = scaleValueTetx;
   imgPreview.style.transform = '';
+  imgPreview.classList.remove(imgPreview.classList);
+  // eslint-disable-next-line no-unused-expressions
+  previewEffectsInput[0].checked = true;
 };
 
 
@@ -56,10 +59,6 @@ form.addEventListener('submit', (evt) => {
   const comment = textDescription.value;
   if (getCheckLengthStr(comment, 19) || !getCheckLengthStr(comment, 140)) {
     evt.preventDefault();
-    const mistake = document.createElement('p');
-    mistake.textContent = 'Комментарий должен быть от 20 до 140 символов';
-    mistake.style.color = 'red';
-    document.querySelector('.img-upload__text').insertBefore(mistake, textDescription);
   }
 });
 

@@ -1,6 +1,6 @@
-import { imgPreview } from './elements.js';
+import { imgPreview, previewEffectsInput } from './elements.js';
 
-const previewEffectsInput = document.querySelectorAll('.effects__radio');
+//const previewEffectsInput = document.querySelectorAll('.effects__radio');
 const previewEffects = document.querySelectorAll('.effects__preview');
 
 previewEffectsInput.forEach((effect, index) => {
