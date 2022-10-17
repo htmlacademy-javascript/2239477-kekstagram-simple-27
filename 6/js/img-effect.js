@@ -1,21 +1,21 @@
-import { imgPreview, previewEffectsInput } from './elements.js';
+import { imgPreview } from './elements.js';
 
-const previewEffects = document.querySelectorAll('.effects__preview');
+const imgPreviewList = document.querySelector('.effects__list');
 
-previewEffectsInput.forEach((effect, index) => {
-  effect.addEventListener('click', function () {
+function onEffectChange (evt) {
+  if (evt.target.matches('input[type="radio"]')) {
     const imgClass = imgPreview.classList[0];
-    const imgEffect = previewEffects[index].classList[1];
 
-    if (this.checked && !previewEffectsInput[0].checked) {
+    if (evt.target.closest('.effects__item')) {
+      const parent = evt.target.closest('.effects__item');
+      const span = parent.querySelector('.effects__preview');
 
-      imgPreview.classList.add(imgEffect);
-
+      imgPreview.classList.add(span.classList[1]);
       if (imgClass !== undefined) {
         imgPreview.classList.remove(imgClass);
       }
-    } else {
-      imgPreview.classList.remove(imgClass);
     }
-  });
-});
+  }
+}
+
+imgPreviewList.addEventListener('change', onEffectChange);
