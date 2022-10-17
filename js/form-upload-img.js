@@ -34,7 +34,9 @@ const closePopup = () => {
   fileInput.value = '';
   scaleValue.value = scaleValueTetx;
   imgPreview.style.transform = '';
-  imgPreview.classList.remove(imgPreview.classList);
+  if(imgPreview.className.length > 0){
+    imgPreview.classList.remove(imgPreview.classList);
+  }
   // eslint-disable-next-line no-unused-expressions
   previewEffectsInput[0].checked = true;
 };
