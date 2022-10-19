@@ -26,33 +26,30 @@ const updateSlider = (min, max, start, step) => {
 
 imgPreviewList.addEventListener('change', (evt) => {
 
-  if (evt.target.checked) {
+  sliderContainer.hidden = false;
 
-    sliderContainer.hidden = false;
+  switch (evt.target.checked) {
 
-    if (evt.target.value === 'chrome') {
+    case evt.target.value === 'chrome':
       updateSlider(0, 1, 1, .1);
-      intensityEffect('grayscale(', ')');
-
-    } else if (evt.target.value === 'sepia') {
+      return intensityEffect('grayscale(', ')');
+    case evt.target.value === 'sepia':
       updateSlider(0, 1, 1, .1);
-      intensityEffect('sepia(', ')');
-
-    } else if (evt.target.value === 'marvin') {
+      return intensityEffect('sepia(', ')');
+    case evt.target.value === 'marvin':
       updateSlider(0, 100, 100, 1);
-      intensityEffect('invert(', '%)');
-    } else if (evt.target.value === 'phobos') {
+      return intensityEffect('invert(', '%)');
+    case evt.target.value === 'phobos':
       updateSlider(0, 3, 3, .1);
-      intensityEffect('blur(', 'px)');
-    } else if (evt.target.value === 'heat') {
+      return intensityEffect('blur(', 'px)');
+    case evt.target.value === 'heat':
       updateSlider(1, 3, 3, .1);
-      intensityEffect('brightness(', ')');
-    } else if (evt.target.value === 'none') {
+      return intensityEffect('brightness(', ')');
+    case evt.target.value === 'none':
       sliderContainer.hidden = true;
-      imgPreview.style.removeProperty('filter');
-    } else {
+      return imgPreview.style.removeProperty('filter');
+    default:
       updateSlider(0, 1, 1, .1);
-      imgPreview.style.removeProperty('filter');
-    }
+      return imgPreview.style.removeProperty('filter');
   }
 });

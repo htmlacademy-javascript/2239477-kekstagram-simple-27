@@ -1,5 +1,5 @@
 import { isEscapeKey } from './util.js';
-import { scaleValue, imgPreview, scaleValueTetx, previewEffectsInput, sliderIntensityEffect, effectLevelValue } from './elements.js';
+import { scaleValue, imgPreview, scaleValueTetx, previewEffectsInput, sliderIntensityEffect, effectLevelValue, sliderContainer } from './elements.js';
 import { getCheckLengthStr } from './get-check-length-str.js';
 import { initializeSlider } from './initialize-slider.js';
 
@@ -37,6 +37,7 @@ const closePopup = () => {
   imgPreview.removeAttribute('class');
   imgPreview.removeAttribute('style');
   effectLevelValue.value = '';
+  sliderContainer.hidden = true;
   sliderIntensityEffect.noUiSlider.destroy();
   initializeSlider();
   // eslint-disable-next-line no-unused-expressions
