@@ -1,6 +1,7 @@
 import { isEscapeKey } from './util.js';
-import { scaleValue, imgPreview, scaleValueTetx, previewEffectsInput } from './elements.js';
+import { scaleValue, imgPreview, scaleValueTetx, previewEffectsInput, sliderIntensityEffect, effectLevelValue, sliderContainer } from './elements.js';
 import { getCheckLengthStr } from './get-check-length-str.js';
+import { initializeSlider } from './initialize-slider.js';
 
 const fileInput = document.querySelector('.img-upload__input');
 const popupImg = document.querySelector('.img-upload__overlay');
@@ -33,10 +34,12 @@ const closePopup = () => {
   textDescription.value = '';
   fileInput.value = '';
   scaleValue.value = scaleValueTetx;
-  imgPreview.style.transform = '';
-  if(imgPreview.className.length > 0){
-    imgPreview.classList.remove(imgPreview.classList);
-  }
+  imgPreview.removeAttribute('class');
+  imgPreview.removeAttribute('style');
+  effectLevelValue.value = '';
+  sliderContainer.hidden = true;
+  sliderIntensityEffect.noUiSlider.destroy();
+  initializeSlider();
   // eslint-disable-next-line no-unused-expressions
   previewEffectsInput[0].checked = true;
 };
