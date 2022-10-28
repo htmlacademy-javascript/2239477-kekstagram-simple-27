@@ -1,23 +1,19 @@
-import { objects } from './get-object-description.js';
-
 const minPictureTemplate = document.querySelector('#picture').content.querySelector('.picture');
 
 const pictureContainer = document.querySelector('.pictures');
-
-function getListContent(obj) {
+const getListContent = (photo) => {
   const fragment = new DocumentFragment();
 
-  obj.forEach((_value, index) => {
+  photo.forEach((_value, index) => {
     const clonedMinPictureTemplate = minPictureTemplate.cloneNode(true);
 
-    clonedMinPictureTemplate.querySelector('.picture__img').src = obj[index].url;
-    clonedMinPictureTemplate.querySelector('.picture__likes').textContent = obj[index].likes;
-    clonedMinPictureTemplate.querySelector('.picture__comments').textContent = obj[index].comments;
+    clonedMinPictureTemplate.querySelector('.picture__img').src = photo[index].url;
+    clonedMinPictureTemplate.querySelector('.picture__likes').textContent = photo[index].likes;
+    clonedMinPictureTemplate.querySelector('.picture__comments').textContent = photo[index].comments;
 
     fragment.append(clonedMinPictureTemplate);
   });
+  pictureContainer.append(fragment);
+};
 
-  return fragment;
-}
-
-pictureContainer.append(getListContent(objects));
+export { getListContent };
