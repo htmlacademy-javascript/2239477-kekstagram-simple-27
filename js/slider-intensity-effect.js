@@ -27,25 +27,25 @@ const updateSlider = (min, max, start, step) => {
 imgPreviewList.addEventListener('change', (evt) => {
 
   sliderContainer.hidden = false;
+  if(!evt.target.checked) {return;}
+  switch (evt.target.value) {
 
-  switch (evt.target.checked) {
-
-    case evt.target.value === 'chrome':
+    case 'chrome':
       updateSlider(0, 1, 1, .1);
       return intensityEffect('grayscale(', ')');
-    case evt.target.value === 'sepia':
+    case 'sepia':
       updateSlider(0, 1, 1, .1);
       return intensityEffect('sepia(', ')');
-    case evt.target.value === 'marvin':
+    case'marvin':
       updateSlider(0, 100, 100, 1);
       return intensityEffect('invert(', '%)');
-    case evt.target.value === 'phobos':
+    case 'phobos':
       updateSlider(0, 3, 3, .1);
       return intensityEffect('blur(', 'px)');
-    case evt.target.value === 'heat':
+    case 'heat':
       updateSlider(1, 3, 3, .1);
       return intensityEffect('brightness(', ')');
-    case evt.target.value === 'none':
+    case 'none':
       sliderContainer.hidden = true;
       return imgPreview.style.removeProperty('filter');
     default:
