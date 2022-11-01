@@ -2,17 +2,17 @@ const isEscapeKey = (evt) => evt.key === 'Escape';
 
 const showAlert = (message) => {
   const alertContainer = document.createElement('div');
-  alertContainer.style.zIndex = '100';
-  alertContainer.style.position = 'absolute';
-  alertContainer.style.width = '100%';
-  alertContainer.style.left = '50%';
-  alertContainer.style.top = '50%';
-  alertContainer.style.padding = '10px 3px';
-  alertContainer.style.fontSize = '18px';
-  alertContainer.style.lineHeight = '20px';
-  alertContainer.style.textAlign = 'center';
-  alertContainer.style.backgroundColor = 'red';
-  alertContainer.style.transform = 'translate(-50%, -50%)';
+  alertContainer.style = `z-index:100;
+    position: absolute;
+    width: 100%;
+    left: 50%;
+    top: 50%;
+    padding: 10px 3px;
+    font-size: 18px;
+    line-height: 20px;
+    text-align: center;
+    background-color: red;
+    transform: translate(-50%, -50%);`;
 
   alertContainer.textContent = message;
 
@@ -20,7 +20,7 @@ const showAlert = (message) => {
 
   setTimeout(() => {
     alertContainer.remove();
-  }, 5000);
+  }, 50000);
 };
 
 export { isEscapeKey, showAlert };
