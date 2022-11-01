@@ -20,7 +20,7 @@ const showAlert = (message) => {
 
   setTimeout(() => {
     alertContainer.remove();
-  }, 50000);
+  }, 5000);
 };
 
 export { isEscapeKey, showAlert };
