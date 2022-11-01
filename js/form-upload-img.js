@@ -1,13 +1,10 @@
 import { isEscapeKey } from './util.js';
-import { scaleValue, imgPreview, scaleValueTetx, previewEffectsInput, sliderIntensityEffect, effectLevelValue, sliderContainer } from './elements.js';
-import { getCheckLengthStr } from './get-check-length-str.js';
+import { scaleValue, imgPreview, scaleValueTetx, previewEffectsInput, sliderIntensityEffect, effectLevelValue, sliderContainer, textDescription } from './elements.js';
 import { initializeSlider } from './initialize-slider.js';
 
 const fileInput = document.querySelector('.img-upload__input');
 const popupImg = document.querySelector('.img-upload__overlay');
 const btnHidePopup = document.querySelector('#upload-cancel');
-const textDescription = document.querySelector('.text__description');
-const form = document.getElementById('upload-select-image');
 
 const onPopupEscKeydown = (evt) => {
   if (isEscapeKey(evt)) {
@@ -44,7 +41,6 @@ const closePopup = () => {
   previewEffectsInput[0].checked = true;
 };
 
-
 const openPopup = () => {
   popupImg.classList.remove('hidden');
   document.body.classList.add('modal-open');
@@ -60,14 +56,9 @@ fileInput.addEventListener('change', (evt) => {
   openPopup();
 });
 
-form.addEventListener('submit', (evt) => {
-  const comment = textDescription.value;
-  if (getCheckLengthStr(comment, 19) || !getCheckLengthStr(comment, 140)) {
-    evt.preventDefault();
-  }
-});
-
 btnHidePopup.addEventListener('click', (evt) => {
   evt.preventDefault();
   closePopup();
 });
+
+export { closePopup, openPopup, onPopupEscKeydown };

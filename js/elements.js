@@ -5,6 +5,7 @@ const imgPreviewList = document.querySelector('.effects__list');
 const sliderIntensityEffect = document.querySelector('.effect-level__slider');
 const sliderContainer = document.querySelector('.effect-level');
 const effectLevelValue = document.querySelector('.effect-level__value');
+const textDescription = document.querySelector('.text__description');
 
 
 const scaleValueTetx = scaleValue.value;
@@ -17,5 +18,6 @@ export {
   imgPreviewList,
   sliderIntensityEffect,
   sliderContainer,
-  effectLevelValue
+  effectLevelValue,
+  textDescription
 };
