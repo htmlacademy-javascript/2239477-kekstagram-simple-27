@@ -1,19 +1,19 @@
-const minPictureTemplate = document.querySelector('#picture').content.querySelector('.picture');
+const minPictureTemplateElement = document.querySelector('#picture').content.querySelector('.picture');
 
-const pictureContainer = document.querySelector('.pictures');
+const pictureContainerElement = document.querySelector('.pictures');
 const getListContent = (photo) => {
   const fragment = new DocumentFragment();
 
   photo.forEach((_value, index) => {
-    const clonedMinPictureTemplate = minPictureTemplate.cloneNode(true);
+    const clonedMinPictureTemplateElement = minPictureTemplateElement.cloneNode(true);
 
-    clonedMinPictureTemplate.querySelector('.picture__img').src = photo[index].url;
-    clonedMinPictureTemplate.querySelector('.picture__likes').textContent = photo[index].likes;
-    clonedMinPictureTemplate.querySelector('.picture__comments').textContent = photo[index].comments;
+    clonedMinPictureTemplateElement.querySelector('.picture__img').src = photo[index].url;
+    clonedMinPictureTemplateElement.querySelector('.picture__likes').textContent = photo[index].likes;
+    clonedMinPictureTemplateElement.querySelector('.picture__comments').textContent = photo[index].comments;
 
-    fragment.append(clonedMinPictureTemplate);
+    fragment.append(clonedMinPictureTemplateElement);
   });
-  pictureContainer.append(fragment);
+  pictureContainerElement.append(fragment);
 };
 
 export { getListContent };

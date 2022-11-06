@@ -1,23 +1,22 @@
-const scaleValue = document.querySelector('.scale__control--value');
-const imgPreview = document.querySelector('.img-upload__preview img');
-const previewEffectsInput = document.querySelectorAll('.effects__radio');
-const imgPreviewList = document.querySelector('.effects__list');
-const sliderIntensityEffect = document.querySelector('.effect-level__slider');
-const sliderContainer = document.querySelector('.effect-level');
-const effectLevelValue = document.querySelector('.effect-level__value');
-const textDescription = document.querySelector('.text__description');
+const scaleValueElement = document.querySelector('.scale__control--value');
+const imgPreviewElement = document.querySelector('.img-upload__preview img');
+const previewEffectsInputElement = document.querySelectorAll('.effects__radio');
+const imgPreviewListElement = document.querySelector('.effects__list');
+const sliderIntensityEffectElement = document.querySelector('.effect-level__slider');
+const sliderContainerElement = document.querySelector('.effect-level');
+const effectLevelValueElement = document.querySelector('.effect-level__value');
+const textDescriptionElement = document.querySelector('.text__description');
 
-
-const scaleValueTetx = scaleValue.value;
+const scaleValueTetx = scaleValueElement.value;
 
 export {
-  scaleValue,
-  imgPreview,
+  scaleValueElement,
+  imgPreviewElement,
   scaleValueTetx,
-  previewEffectsInput,
-  imgPreviewList,
-  sliderIntensityEffect,
-  sliderContainer,
-  effectLevelValue,
-  textDescription
+  previewEffectsInputElement,
+  imgPreviewListElement,
+  sliderIntensityEffectElement,
+  sliderContainerElement,
+  effectLevelValueElement,
+  textDescriptionElement
 };

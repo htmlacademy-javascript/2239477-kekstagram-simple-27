@@ -1,64 +1,59 @@
 import { isEscapeKey } from './util.js';
-import { scaleValue, imgPreview, scaleValueTetx, previewEffectsInput, sliderIntensityEffect, effectLevelValue, sliderContainer, textDescription } from './elements.js';
-import { initializeSlider } from './initialize-slider.js';
+import { scaleValueElement, imgPreviewElement, scaleValueTetx, previewEffectsInputElement, sliderIntensityEffectElement, effectLevelValueElement, sliderContainerElement, textDescriptionElement } from './elements.js';
+import { initializesSlider } from './initialize-slider.js';
 
-const fileInput = document.querySelector('.img-upload__input');
-const popupImg = document.querySelector('.img-upload__overlay');
-const btnHidePopup = document.querySelector('#upload-cancel');
+const fileInputElement = document.querySelector('.img-upload__input');
+const popupImgElement = document.querySelector('.img-upload__overlay');
+const btnHidePopupElement = document.querySelector('#upload-cancel');
 
-const onPopupEscKeydown = (evt) => {
+function closePopupEscKeydown (evt) {
   if (isEscapeKey(evt)) {
     evt.preventDefault();
-    // eslint-disable-next-line no-use-before-define
     closePopup();
   }
-};
+}
 
-const onPopupDocument = (evt) => {
-  if (evt.target === popupImg) {
+function closePopupDocument (evt) {
+  if (evt.target === popupImgElement) {
     evt.preventDefault();
-    // eslint-disable-next-line no-use-before-define
     closePopup();
   }
-};
+}
 
-const closePopup = () => {
+function closePopup () {
   document.body.classList.remove('modal-open');
-  popupImg.classList.add('hidden');
-  document.removeEventListener('keydown', onPopupEscKeydown);
-  document.removeEventListener('click', onPopupDocument);
+  popupImgElement.classList.add('hidden');
+  document.removeEventListener('keydown', closePopupEscKeydown);
+  document.removeEventListener('click', closePopupDocument);
 
-  textDescription.value = '';
-  fileInput.value = '';
-  scaleValue.value = scaleValueTetx;
-  imgPreview.removeAttribute('class');
-  imgPreview.removeAttribute('style');
-  effectLevelValue.value = '';
-  sliderContainer.hidden = true;
-  sliderIntensityEffect.noUiSlider.destroy();
-  initializeSlider();
-  // eslint-disable-next-line no-unused-expressions
-  previewEffectsInput[0].checked = true;
-};
+  textDescriptionElement.value = '';
+  fileInputElement.value = '';
+  scaleValueElement.value = scaleValueTetx;
+  imgPreviewElement.removeAttribute('class');
+  imgPreviewElement.removeAttribute('style');
+  effectLevelValueElement.value = '';
+  sliderContainerElement.hidden = true;
+  sliderIntensityEffectElement.noUiSlider.destroy();
+  initializesSlider();
+  previewEffectsInputElement[0].checked = true;
+}
 
-const openPopup = () => {
-  popupImg.classList.remove('hidden');
+function openPopup () {
+  popupImgElement.classList.remove('hidden');
   document.body.classList.add('modal-open');
 
-  document.addEventListener('keydown', onPopupEscKeydown);
-  document.addEventListener('click', onPopupDocument);
-};
+  document.addEventListener('keydown', closePopupEscKeydown);
+  document.addEventListener('click', closePopupDocument);
+}
 
-fileInput.addEventListener('change', (evt) => {
+fileInputElement.addEventListener('change', (evt) => {
   evt.preventDefault();
-
-  // eslint-disable-next-line no-use-before-define
   openPopup();
 });
 
-btnHidePopup.addEventListener('click', (evt) => {
+btnHidePopupElement.addEventListener('click', (evt) => {
   evt.preventDefault();
   closePopup();
 });
 
-export { closePopup, openPopup, onPopupEscKeydown };
+export { closePopup, openPopup, closePopupEscKeydown };

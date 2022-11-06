@@ -5,6 +5,7 @@ const TIME = 5000;
 const STEP_SCALE = 25;
 const MAX_SCALE_VALUE = 100;
 const MIN_SCALE_VALUE = 25;
+const MAX_VALUE = 3;
 
 const URL_SERVER = 'https://27.javascript.pages.academy/kekstagram-simple' ;
 const URL_PHOTOS = `${URL_SERVER}/data`;
@@ -18,5 +19,6 @@ export {
   MAX_SCALE_VALUE,
   MIN_SCALE_VALUE,
   URL_SERVER,
-  URL_PHOTOS
+  URL_PHOTOS,
+  MAX_VALUE
 };
