@@ -1,3 +1,5 @@
+import {TIME} from './const.JS';
+
 const isEscapeKey = (evt) => evt.key === 'Escape';
 
 const showAlert = (message) => {
@@ -20,7 +22,7 @@ const showAlert = (message) => {
 
   setTimeout(() => {
     alertContainer.remove();
-  }, 5000);
+  }, TIME);
 };
 
 export { isEscapeKey, showAlert };

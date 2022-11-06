@@ -1,7 +1,9 @@
 import {showAlert} from './util.js';
+import {URL_SERVER, URL_PHOTOS} from './const.JS';
+
 const getData = (onSuccess) => {
   fetch(
-    'https://27.javascript.pages.academy/kekstagram-simple/data',
+    URL_PHOTOS,
     {
       method: 'GET',
       credentials: 'same-origin',
@@ -18,7 +20,7 @@ const getData = (onSuccess) => {
 
 const sendData = (onSuccess, onFail, body) => {
   fetch(
-    'https://27.javascript.pages.academy/kekstagram-simple',
+    URL_SERVER,
     {
       method: 'POST',
       body,
