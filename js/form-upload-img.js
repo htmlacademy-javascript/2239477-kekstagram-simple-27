@@ -1,6 +1,6 @@
 import { isEscapeKey } from './util.js';
 import { scaleValueElement, imgPreviewElement, scaleValueTetx, previewEffectsInputElement, sliderIntensityEffectElement, effectLevelValueElement, sliderContainerElement, textDescriptionElement } from './elements.js';
-import { initializesSlider } from './initialize-slider.js';
+import { initializeSlider } from './initialize-slider.js';
 
 const fileInputElement = document.querySelector('.img-upload__input');
 const popupImgElement = document.querySelector('.img-upload__overlay');
@@ -34,7 +34,7 @@ function closePopup () {
   effectLevelValueElement.value = '';
   sliderContainerElement.hidden = true;
   sliderIntensityEffectElement.noUiSlider.destroy();
-  initializesSlider();
+  initializeSlider();
   previewEffectsInputElement[0].checked = true;
 }
 
