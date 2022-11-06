@@ -1,4 +1,6 @@
 import {getObjectDescription} from './create-img-description.js';
+// eslint-disable-next-line no-unused-vars
+import {MAX_OBJ_COUNT} from './const.js';
 
 function getArr(arrLenght, arrValue) {
   const images = [];
@@ -10,6 +12,6 @@ function getArr(arrLenght, arrValue) {
   return images;
 }
 
-const objects = getArr(25, getObjectDescription);
+const photos = getArr(MAX_OBJ_COUNT, getObjectDescription);
 
-export {objects};
+export {photos};
