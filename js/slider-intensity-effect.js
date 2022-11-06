@@ -1,20 +1,18 @@
-import { imgPreview, imgPreviewList, sliderIntensityEffect, sliderContainer, effectLevelValue } from './elements.js';
+import { imgPreviewElement, imgPreviewListElement, sliderIntensityEffectElement, sliderContainerElement, effectLevelValueElement } from './elements.js';
 
 import { initializeSlider } from './initialize-slider.js';
 
 initializeSlider();
 
-const intensityEffect = (filter, as) => {
-
-  // eslint-disable-next-line no-unused-vars
-  sliderIntensityEffect.noUiSlider.on('update', (..._rest) => {
-    effectLevelValue.value = sliderIntensityEffect.noUiSlider.get();
-    imgPreview.style.filter = `${filter}${sliderIntensityEffect.noUiSlider.get()}${as}`;
+function intensityEffect (filter, as) {
+  sliderIntensityEffectElement.noUiSlider.on('update', () => {
+    effectLevelValueElement.value = sliderIntensityEffectElement.noUiSlider.get();
+    imgPreviewElement.style.filter = `${filter}${sliderIntensityEffectElement.noUiSlider.get()}${as}`;
   });
-};
+}
 
 const updateSlider = (min, max, start, step) => {
-  sliderIntensityEffect.noUiSlider.updateOptions({
+  sliderIntensityEffectElement.noUiSlider.updateOptions({
     range: {
       'min': min,
       'max': max,
@@ -24,9 +22,9 @@ const updateSlider = (min, max, start, step) => {
   });
 };
 
-imgPreviewList.addEventListener('change', (evt) => {
+imgPreviewListElement.addEventListener('change', (evt) => {
 
-  sliderContainer.hidden = false;
+  sliderContainerElement.hidden = false;
   if(!evt.target.checked) {return;}
   switch (evt.target.value) {
 
@@ -46,10 +44,10 @@ imgPreviewList.addEventListener('change', (evt) => {
       updateSlider(1, 3, 3, .1);
       return intensityEffect('brightness(', ')');
     case 'none':
-      sliderContainer.hidden = true;
-      return imgPreview.style.removeProperty('filter');
+      sliderContainerElement.hidden = true;
+      return imgPreviewElement.style.removeProperty('filter');
     default:
       updateSlider(0, 1, 1, .1);
-      return imgPreview.style.removeProperty('filter');
+      return imgPreviewElement.style.removeProperty('filter');
   }
 });

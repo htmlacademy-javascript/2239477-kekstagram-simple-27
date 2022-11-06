@@ -1,7 +1,7 @@
-import { sliderIntensityEffect } from './elements.js';
+import { sliderIntensityEffectElement } from './elements.js';
 
 const initializeSlider = () => {
-  noUiSlider.create(sliderIntensityEffect, {
+  noUiSlider.create(sliderIntensityEffectElement, {
     range: {
       'min': 0,
       'max': 1,

@@ -1,4 +1,3 @@
-import './get-check-length-str.js';
 import './scale-img.js';
 import './img-effect.js';
 import './slider-intensity-effect.js';

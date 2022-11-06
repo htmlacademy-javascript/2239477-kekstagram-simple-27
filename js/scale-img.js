@@ -1,33 +1,33 @@
-import { scaleValue, imgPreview } from './elements.js';
-import { STEP_SCALE, MAX_SCALE_VALUE, MIN_SCALE_VALUE } from './const.js';
+import { scaleValueElement, imgPreviewElement } from './elements.js';
+import { STEP_SCALE, MAX_SCALE_VALUE, MIN_SCALE_VALUE, MAX_VALUE } from './const.js';
 
-const scaleSmaller = document.querySelector('.scale__control--smaller');
-const scaleBigger = document.querySelector('.scale__control--bigger');
+const scaleSmallerElement = document.querySelector('.scale__control--smaller');
+const scaleBiggerElement = document.querySelector('.scale__control--bigger');
 
-scaleBigger.addEventListener('click', () => {
-  let numValue = +scaleValue.value.slice(0, -1);
+scaleBiggerElement.addEventListener('click', () => {
+  let numValue = +scaleValueElement.value.slice(0, -1);
 
   if (+numValue < MAX_SCALE_VALUE) {
     numValue += STEP_SCALE;
     numValue = String(numValue);
-    scaleValue.value = `${numValue }%`;
-    if (numValue.length < 3) {
-      imgPreview.style.transform = `scale(${numValue.padStart(4, '0.')})`;
+    scaleValueElement.value = `${numValue }%`;
+    if (numValue.length < MAX_VALUE) {
+      imgPreviewElement.style.transform = `scale(${numValue.padStart(4, '0.')})`;
     } else {
-      imgPreview.style.transform = '';
+      imgPreviewElement.style.transform = '';
     }
   }
 });
 
-scaleSmaller.addEventListener('click', () => {
-  let numValue = +scaleValue.value.slice(0, -1);
+scaleSmallerElement.addEventListener('click', () => {
+  let numValue = +scaleValueElement.value.slice(0, -1);
 
   if (numValue > MIN_SCALE_VALUE) {
     numValue -= STEP_SCALE;
     numValue = String(numValue);
-    scaleValue.value = `${numValue }%`;
-    if (numValue.length < 3) {
-      imgPreview.style.transform = `scale(${numValue.padStart(4, '0.')})`;
+    scaleValueElement.value = `${numValue }%`;
+    if (numValue.length < MAX_VALUE) {
+      imgPreviewElement.style.transform = `scale(${numValue.padStart(4, '0.')})`;
     }
   }
 });

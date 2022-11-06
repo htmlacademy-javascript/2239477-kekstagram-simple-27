@@ -1,5 +1,4 @@
 import {getObjectDescription} from './create-img-description.js';
-// eslint-disable-next-line no-unused-vars
 import {MAX_OBJ_COUNT} from './const.js';
 
 function getArr(arrLenght, arrValue) {

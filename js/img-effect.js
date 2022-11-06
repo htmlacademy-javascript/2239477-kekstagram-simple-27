@@ -1,21 +1,19 @@
-import { imgPreview } from './elements.js';
-
-const imgPreviewList = document.querySelector('.effects__list');
+import { imgPreviewElement, imgPreviewListElement } from './elements.js';
 
 function onEffectChange (evt) {
   if (evt.target.matches('input[type="radio"]')) {
-    const imgClass = imgPreview.classList[0];
+    const imgClass = imgPreviewElement.classList[0];
 
     if (evt.target.closest('.effects__item')) {
-      const parent = evt.target.closest('.effects__item');
-      const span = parent.querySelector('.effects__preview');
+      const parentElement = evt.target.closest('.effects__item');
+      const spanElement = parentElement.querySelector('.effects__preview');
 
-      imgPreview.classList.add(span.classList[1]);
+      imgPreviewElement.classList.add(spanElement.classList[1]);
       if (imgClass !== undefined) {
-        imgPreview.classList.remove(imgClass);
+        imgPreviewElement.classList.remove(imgClass);
       }
     }
   }
 }
 
-imgPreviewList.addEventListener('change', onEffectChange);
+imgPreviewListElement.addEventListener('change', onEffectChange);
